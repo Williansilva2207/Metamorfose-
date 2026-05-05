@@ -52,6 +52,34 @@ export interface Comment {
   createdAt: string
 }
 
+export interface CommunityMember {
+  id: string
+  name: string
+  isAnonymous: boolean
+  avatar?: string
+  bio?: string
+  lastSeen: string
+}
+
+export interface PrivateMessage {
+  id: string
+  senderId: string
+  content: string
+  createdAt: string
+  read: boolean
+}
+
+export interface Conversation {
+  id: string
+  participantId: string
+  participantName: string
+  participantAvatar?: string
+  isParticipantAnonymous: boolean
+  messages: PrivateMessage[]
+  lastMessageAt: string
+  unreadCount: number
+}
+
 // Current user
 export const currentUser: User = {
   id: '1',
@@ -327,5 +355,110 @@ export const plans = [
       'Suporte por chat',
       'Requer comprovação',
     ],
+  },
+]
+
+// Community Members
+export const communityMembers: CommunityMember[] = [
+  {
+    id: 'member-1',
+    name: 'Juliana M.',
+    isAnonymous: false,
+    bio: 'Em processo de cura há 1 ano. Adoro compartilhar e ajudar outras mulheres.',
+    lastSeen: '2026-05-05T14:30:00',
+  },
+  {
+    id: 'member-2',
+    name: 'Camila R.',
+    isAnonymous: false,
+    bio: 'Sobrevivente e guerreira. Aqui para apoiar e ser apoiada.',
+    lastSeen: '2026-05-05T12:00:00',
+  },
+  {
+    id: 'member-3',
+    name: 'Renata L.',
+    isAnonymous: false,
+    bio: 'Mãe de 2, recomeçando a vida aos 35.',
+    lastSeen: '2026-05-04T22:15:00',
+  },
+  {
+    id: 'member-4',
+    name: 'Patricia S.',
+    isAnonymous: false,
+    bio: 'Advogada, lutando contra a dependência emocional.',
+    lastSeen: '2026-05-05T10:00:00',
+  },
+  {
+    id: 'member-5',
+    name: 'Marina C.',
+    isAnonymous: false,
+    bio: 'Artista plástica encontrando minha voz novamente.',
+    lastSeen: '2026-05-05T08:30:00',
+  },
+]
+
+// Private Conversations
+export const conversations: Conversation[] = [
+  {
+    id: 'conv-1',
+    participantId: 'member-1',
+    participantName: 'Juliana M.',
+    isParticipantAnonymous: false,
+    messages: [
+      {
+        id: 'msg-1',
+        senderId: 'member-1',
+        content: 'Oi! Vi seu post na comunidade e queria te mandar forças. Passei por algo parecido.',
+        createdAt: '2026-05-04T10:00:00',
+        read: true,
+      },
+      {
+        id: 'msg-2',
+        senderId: '1',
+        content: 'Muito obrigada! Significa muito pra mim. Como você conseguiu superar?',
+        createdAt: '2026-05-04T10:15:00',
+        read: true,
+      },
+      {
+        id: 'msg-3',
+        senderId: 'member-1',
+        content: 'Foi um processo longo, mas a terapia ajudou demais. Se quiser conversar mais, estou aqui!',
+        createdAt: '2026-05-04T10:30:00',
+        read: true,
+      },
+    ],
+    lastMessageAt: '2026-05-04T10:30:00',
+    unreadCount: 0,
+  },
+  {
+    id: 'conv-2',
+    participantId: 'member-3',
+    participantName: 'Renata L.',
+    isParticipantAnonymous: false,
+    messages: [
+      {
+        id: 'msg-4',
+        senderId: 'member-3',
+        content: 'Amei sua dica do diário de gratidão! Comecei a fazer também.',
+        createdAt: '2026-05-05T09:00:00',
+        read: true,
+      },
+      {
+        id: 'msg-5',
+        senderId: '1',
+        content: 'Que bom que gostou! No começo é difícil, mas depois vira hábito.',
+        createdAt: '2026-05-05T09:30:00',
+        read: true,
+      },
+      {
+        id: 'msg-6',
+        senderId: 'member-3',
+        content: 'Verdade! Já estou no terceiro dia. Você usa algum app ou caderno físico?',
+        createdAt: '2026-05-05T14:00:00',
+        read: false,
+      },
+    ],
+    lastMessageAt: '2026-05-05T14:00:00',
+    unreadCount: 1,
   },
 ]
