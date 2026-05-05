@@ -32,11 +32,11 @@ export default function LoginPage() {
         <div className="max-w-md text-center">
           <div className="flex justify-center mb-8">
             <Image
-              src="/logo.jpg"
+              src="/logo-transparent.png"
               alt="Metamorfose"
-              width={120}
-              height={120}
-              className="rounded-2xl shadow-lg"
+              width={200}
+              height={200}
+              className="drop-shadow-lg"
             />
           </div>
           <h2 className="text-3xl font-bold text-foreground mb-4">
@@ -59,11 +59,11 @@ export default function LoginPage() {
           <CardHeader className="text-center pb-2">
             <div className="flex justify-center mb-4 lg:hidden">
               <Image
-                src="/logo.jpg"
+                src="/logo-transparent.png"
                 alt="Metamorfose"
-                width={80}
-                height={80}
-                className="rounded-xl"
+                width={120}
+                height={120}
+                className="drop-shadow-md"
               />
             </div>
             <CardTitle className="text-2xl font-bold text-foreground">Entrar</CardTitle>
