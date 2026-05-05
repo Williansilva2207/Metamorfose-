@@ -19,13 +19,13 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
-import { Star, Search, Calendar, Clock, User, CheckCircle } from 'lucide-react'
-import { psychologists, specialties, currentUser } from '@/lib/mock-data'
+import { Star, Search, Calendar, Clock, User, CheckCircle, Brain, Sparkles } from 'lucide-react'
+import { psychologists, professionalTypes, currentUser } from '@/lib/mock-data'
 import type { Psychologist } from '@/lib/mock-data'
 
 export default function PsicologasPage() {
   const [search, setSearch] = useState('')
-  const [specialty, setSpecialty] = useState('Todas')
+  const [professionalType, setProfessionalType] = useState('todos')
   const [selectedPsy, setSelectedPsy] = useState<Psychologist | null>(null)
   const [selectedSlot, setSelectedSlot] = useState<string | null>(null)
   const [showSuccess, setShowSuccess] = useState(false)
@@ -33,8 +33,8 @@ export default function PsicologasPage() {
   const filteredPsychologists = psychologists.filter(psy => {
     const matchesSearch = psy.name.toLowerCase().includes(search.toLowerCase()) ||
       psy.specialty.toLowerCase().includes(search.toLowerCase())
-    const matchesSpecialty = specialty === 'Todas' || psy.specialty === specialty
-    return matchesSearch && matchesSpecialty
+    const matchesType = professionalType === 'todos' || psy.professionalType === professionalType
+    return matchesSearch && matchesType
   })
 
   const handleSchedule = () => {
@@ -53,9 +53,9 @@ export default function PsicologasPage() {
     <div className="space-y-6 pt-12 md:pt-0">
       {/* Header */}
       <div>
-        <h1 className="text-2xl md:text-3xl font-bold text-foreground">Psicólogas</h1>
+        <h1 className="text-2xl md:text-3xl font-bold text-foreground">Profissionais</h1>
         <p className="text-muted-foreground mt-1">
-          Encontre a profissional ideal para você
+          Encontre o profissional ideal para você
         </p>
       </div>
 
@@ -92,14 +92,14 @@ export default function PsicologasPage() {
             className="pl-10 bg-card"
           />
         </div>
-        <Select value={specialty} onValueChange={setSpecialty}>
+        <Select value={professionalType} onValueChange={setProfessionalType}>
           <SelectTrigger className="w-full sm:w-[220px] bg-card">
-            <SelectValue placeholder="Especialidade" />
+            <SelectValue placeholder="Tipo de Profissional" />
           </SelectTrigger>
           <SelectContent>
-            {specialties.map((spec) => (
-              <SelectItem key={spec} value={spec}>
-                {spec}
+            {professionalTypes.map((type) => (
+              <SelectItem key={type.value} value={type.value}>
+                {type.label}
               </SelectItem>
             ))}
           </SelectContent>
@@ -117,11 +117,17 @@ export default function PsicologasPage() {
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
                 <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                  <User className="h-8 w-8 text-primary" />
+                  {psy.professionalType === 'psicologa' && <User className="h-8 w-8 text-primary" />}
+                  {psy.professionalType === 'neuropsicologo' && <Brain className="h-8 w-8 text-primary" />}
+                  {psy.professionalType === 'outros' && <Sparkles className="h-8 w-8 text-primary" />}
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="font-semibold text-foreground truncate">{psy.name}</h3>
                   <p className="text-sm text-muted-foreground">{psy.specialty}</p>
+                  <p className="text-xs text-primary/80 capitalize">
+                    {psy.professionalType === 'psicologa' ? 'Psicóloga' : 
+                     psy.professionalType === 'neuropsicologo' ? 'Neuropsicóloga' : 'Terapeuta'}
+                  </p>
                   <div className="flex items-center gap-1 mt-1">
                     <Star className="h-4 w-4 fill-primary text-primary" />
                     <span className="text-sm font-medium text-foreground">{psy.rating}</span>
@@ -148,7 +154,7 @@ export default function PsicologasPage() {
       {filteredPsychologists.length === 0 && (
         <div className="text-center py-12">
           <User className="h-12 w-12 text-muted-foreground/50 mx-auto mb-3" />
-          <p className="text-muted-foreground">Nenhuma psicóloga encontrada</p>
+          <p className="text-muted-foreground">Nenhum profissional encontrado</p>
         </div>
       )}
 

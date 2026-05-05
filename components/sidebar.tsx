@@ -60,11 +60,11 @@ export function Sidebar() {
           {/* Logo */}
           <div className="flex items-center gap-3 p-6 border-b border-border">
             <Image
-              src="/logo.jpg"
+              src="/logo-transparent.png"
               alt="Metamorfose"
-              width={48}
-              height={48}
-              className="rounded-lg"
+              width={56}
+              height={56}
+              className="drop-shadow-sm"
             />
             <span className="text-lg font-semibold text-foreground">Metamorfose</span>
           </div>
