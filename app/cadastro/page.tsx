@@ -76,8 +76,8 @@ export default function CadastroPage() {
               <Image
                 src="/logo.jpg"
                 alt="Metamorfose"
-                width={80}
-                height={80}
+                width={160}
+                height={160}
                 className="rounded-xl"
               />
             </div>
