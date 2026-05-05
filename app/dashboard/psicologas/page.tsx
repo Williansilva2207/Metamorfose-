@@ -126,7 +126,7 @@ export default function PsicologasPage() {
                   <p className="text-sm text-muted-foreground">{psy.specialty}</p>
                   <p className="text-xs text-primary/80 capitalize">
                     {psy.professionalType === 'psicologa' ? 'Psicóloga' : 
-                     psy.professionalType === 'neuropsicologo' ? 'Neuropsicólogo' : 'Terapeuta'}
+                     psy.professionalType === 'neuropsicologo' ? 'Neuropsicóloga' : 'Terapeuta'}
                   </p>
                   <div className="flex items-center gap-1 mt-1">
                     <Star className="h-4 w-4 fill-primary text-primary" />

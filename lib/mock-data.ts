@@ -78,10 +78,10 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: '2',
-    name: 'Dr. Marcos Ribeiro',
+    name: 'Dra. Beatriz Ribeiro',
     specialty: 'Avaliação Neuropsicológica',
     professionalType: 'neuropsicologo',
-    bio: 'Neuropsicólogo com foco em avaliação e reabilitação cognitiva. Especialista em trauma cerebral.',
+    bio: 'Neuropsicóloga com foco em avaliação e reabilitação cognitiva. Especialista em trauma cerebral.',
     avatar: '/avatars/psy-2.jpg',
     type: 'paid',
     rating: 4.8,
@@ -114,10 +114,10 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: '5',
-    name: 'Dr. Rafael Costa',
+    name: 'Dra. Rafaela Costa',
     specialty: 'Reabilitação Cognitiva',
     professionalType: 'neuropsicologo',
-    bio: 'Neuropsicólogo especialista em reabilitação cognitiva e acompanhamento pós-trauma.',
+    bio: 'Neuropsicóloga especialista em reabilitação cognitiva e acompanhamento pós-trauma.',
     avatar: '/avatars/psy-5.jpg',
     type: 'paid',
     rating: 4.9,
@@ -150,7 +150,7 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: '8',
-    name: 'Dr. Pedro Nascimento',
+    name: 'Dra. Paula Nascimento',
     specialty: 'Musicoterapia',
     professionalType: 'outros',
     bio: 'Musicoterapeuta com abordagem terapêutica através da música e sons.',
@@ -280,10 +280,10 @@ export const posts: Post[] = [
 
 // Professional types for filtering
 export const professionalTypes = [
-  { value: 'todos', label: 'Todos' },
+  { value: 'todos', label: 'Todas' },
   { value: 'psicologa', label: 'Psicóloga' },
-  { value: 'neuropsicologo', label: 'Neuropsicólogo' },
-  { value: 'outros', label: 'Outros' },
+  { value: 'neuropsicologo', label: 'Neuropsicóloga' },
+  { value: 'outros', label: 'Outras' },
 ]
 
 // Plans
