@@ -40,11 +40,11 @@ export default function CadastroPage() {
         <div className="max-w-md text-center">
           <div className="flex justify-center mb-8">
             <Image
-              src="/logo.jpg"
+              src="/logo-transparent.png"
               alt="Metamorfose"
               width={240}
               height={240}
-              className="rounded-2xl shadow-lg"
+              className="rounded-2xl"
             />
           </div>
           <h2 className="text-3xl font-bold text-foreground mb-4">

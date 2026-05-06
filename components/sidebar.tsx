@@ -60,7 +60,7 @@ export function Sidebar() {
           {/* Logo */}
           <div className="flex items-center gap-3 p-6 border-b border-border">
             <Image
-              src="/logo-transparent.png"
+              src="/logo (1).png"
               alt="Metamorfose"
               width={56}
               height={56}
